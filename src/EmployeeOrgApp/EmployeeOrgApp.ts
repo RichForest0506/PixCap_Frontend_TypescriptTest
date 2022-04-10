@@ -10,7 +10,7 @@ export interface IEmployeeOrgApp {
      * Moves the employee with employeeID (uniqueId) under a supervisor
      (another employee) that has supervisorID (uniqueId).
      * E.g. move Bob (employeeID) to be subordinate of Georgina
-     (supervisorID). * @param employeeID
+     (supervisorID).
      * @param employeeID
      * @param supervisorID
      */
