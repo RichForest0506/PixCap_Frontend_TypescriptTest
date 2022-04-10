@@ -11,6 +11,7 @@ export interface IEmployeeOrgApp {
      (another employee) that has supervisorID (uniqueId).
      * E.g. move Bob (employeeID) to be subordinate of Georgina
      (supervisorID). * @param employeeID
+     * @param employeeID
      * @param supervisorID
      */
     move(employeeID: number, supervisorID: number): void;
@@ -30,14 +31,12 @@ export class EmployeeOrgApp implements IEmployeeOrgApp {
     }
 
     move(employeeID: number, supervisorID: number): void {
-        console.log("========= Move(", employeeID, ", ", supervisorID, ") =========");
         moveEmployee(this.ceo, employeeID, supervisorID, [], true);    // Move employee
     }
 
     undo(): void {
         let move: Move = histories.back();
         if (move != null) {
-            console.log("========= Undo(", move.employeeID, ", ", move.oldSupervisorID, ") =========");
             removeSubordinates(this.ceo, move.subordinates);
             moveEmployee(this.ceo, move.employeeID, move.oldSupervisorID, move.subordinates, false);    // Move employee
         }
