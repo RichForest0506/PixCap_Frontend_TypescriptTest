@@ -45,7 +45,6 @@ export class EmployeeOrgApp implements IEmployeeOrgApp {
     redo(): void {
         let move: Move = histories.forward();
         if (move != null) {
-            console.log("========= Redo(", move.employeeID, ", ", move.newSupervisorID, ") =========");
             moveEmployee(this.ceo, move.employeeID, move.newSupervisorID, [], false);    // Move employee
         }
     }

@@ -1,8 +1,8 @@
 import {Employee} from "../Employee/Employee";
 
-export class Move {
+export interface Move {
     employeeID: number;
     oldSupervisorID: number;
     newSupervisorID: number;
-    subordinates: Employee[];
+    subordinates: Employee[];   //need for undo action
 }
